@@ -1,0 +1,105 @@
+{
+  "projectType": "application",
+  "root": "apps/mfe-one",
+  "sourceRoot": "apps/mfe-one/src",
+  "prefix": "mfe.poc",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/mfe-one",
+        "index": "apps/mfe-one/src/index.html",
+        "main": "apps/mfe-one/src/main.ts",
+        "polyfills": "apps/mfe-one/src/polyfills.ts",
+        "tsConfig": "apps/mfe-one/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/mfe-one/src/favicon.ico", "apps/mfe-one/src/assets"],
+        "styles": ["apps/mfe-one/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/mfe-one/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/mfe-one/src/environments/environment.ts",
+              "with": "apps/mfe-one/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/mfe-one/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "mfe-one:build:production"
+        },
+        "development": {
+          "browserTarget": "mfe-one:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "mfe-one:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/mfe-one/src/**/*.ts",
+          "apps/mfe-one/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "apps/mfe-one/src/test.ts",
+        "tsConfig": "apps/mfe-one/tsconfig.spec.json",
+        "karmaConfig": "apps/mfe-one/karma.conf.js",
+        "polyfills": "apps/mfe-one/src/polyfills.ts",
+        "styles": [],
+        "scripts": [],
+        "assets": []
+      }
+    }
+  },
+  "tags": []
+}
