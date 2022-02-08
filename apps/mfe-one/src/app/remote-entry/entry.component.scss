@@ -2,4 +2,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* You can add global styles to this file, and also import other style files */
+.remote-entry {
+  background-color: #143055;
+  color: white;
+  @apply p-24;
+}

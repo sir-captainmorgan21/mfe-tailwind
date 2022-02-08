@@ -15,7 +15,10 @@
         "tsConfig": "apps/mfe-one/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/mfe-one/src/favicon.ico", "apps/mfe-one/src/assets"],
-        "styles": ["apps/mfe-one/src/styles.scss"],
+        "styles": [
+          "apps/mfe-one/src/styles.scss",
+          "apps/mfe-one/src/app/remote-entry/entry.component.scss"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/mfe-one/webpack.config.js"
