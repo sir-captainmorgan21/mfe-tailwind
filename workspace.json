@@ -3,6 +3,7 @@
   "projects": {
     "mfe-one": "apps/mfe-one",
     "mfe-two": "apps/mfe-two",
-    "shell": "apps/shell"
+    "shell": "apps/shell",
+    "testing": "libs/testing"
   }
 }
